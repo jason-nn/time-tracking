@@ -2,4 +2,37 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Open Sans";
+}
+
+.Navbar {
+    background-color: white;
+    height: 10vh;
+    width: 100vw;
+    padding: 0vw 3vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.1rem;
+}
+
+.Navbar .Right {
+    width: 15vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Navbar .Right span {
+    cursor: pointer;
+}
+
+.Navbar .Right span:hover {
+    color: tomato;
+}
+
+.Home,
+.Summary {
+    background-color: snow;
+    min-height: 90vh;
+    width: 100vw;
 }
