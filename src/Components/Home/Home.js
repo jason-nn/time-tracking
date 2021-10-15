@@ -27,6 +27,7 @@ export default function Home({
                 );
                 output.push(
                     <GroupedCheckin
+                        className={"GroupedCheckin Labels"}
                         key={"labelsfor" + group.date}
                         data={{
                             date: "Date",
@@ -38,11 +39,14 @@ export default function Home({
                 for (let checkin of group?.checkins) {
                     output.push(
                         <GroupedCheckin
+                            className={"GroupedCheckin"}
                             key={checkin.date + checkin.tag + checkin.activity}
                             data={checkin}
                         />
                     );
                 }
+                output.push(<br />);
+                output.push(<br />);
             }
         }
 
@@ -59,6 +63,7 @@ export default function Home({
                 );
                 output.push(
                     <GroupedCheckin
+                        className={"GroupedCheckin Labels"}
                         key={"labelsfor" + group.tag}
                         data={{
                             date: "Date",
@@ -70,11 +75,14 @@ export default function Home({
                 for (let checkin of group?.checkins) {
                     output.push(
                         <GroupedCheckin
+                            className={"GroupedCheckin"}
                             key={checkin.date + checkin.tag + checkin.activity}
                             data={checkin}
                         />
                     );
                 }
+                output.push(<br />);
+                output.push(<br />);
             }
         }
 

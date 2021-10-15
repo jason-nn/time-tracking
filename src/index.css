@@ -176,3 +176,57 @@ select {
 select:focus {
     outline: none;
 }
+
+.Home .Left .Bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 100px;
+}
+
+.GroupHeader {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.GroupHeader .content {
+    border: 1px solid #785dfb;
+    padding: 0.5em 2em;
+    border-radius: 100vw;
+    background-color: white;
+    z-index: 1;
+    color: #785dfb;
+}
+
+.GroupHeader .line {
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    background-color: #785dfb;
+    border-radius: 100vw;
+}
+
+.GroupedCheckin {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+}
+
+.GroupedCheckin span {
+    background-color: #f7f6fa;
+    border: 1.5px solid white;
+    padding: 0.5em;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.Labels span {
+    color: #785dfb;
+    background-color: white;
+}

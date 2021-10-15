@@ -1,11 +1,11 @@
 import React from "react";
 
-export default function GroupedCheckin({ data }) {
+export default function GroupedCheckin({ data, className }) {
     return (
-        <>
-            <div>
-                {data.date} {data.tag} {data.activity}
-            </div>
-        </>
+        <div className={className}>
+            <span>{data.date}</span>
+            <span>{data.tag}</span>
+            <span>{data.activity}</span>
+        </div>
     );
 }
