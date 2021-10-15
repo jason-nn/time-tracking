@@ -12,7 +12,14 @@ export default function Home({
 
     return (
         <div className="Home">
-            <div className="Left"></div>
+            <div className="Left">
+                <div className="Top">
+                    <h2>All check ins</h2>
+                </div>
+                <div className="Bottom">
+                    <div></div>
+                </div>
+            </div>
             <div className="Right">
                 <form
                     onSubmit={(e) => {
