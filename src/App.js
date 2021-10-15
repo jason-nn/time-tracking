@@ -9,6 +9,7 @@ export default function App() {
     const [AllCheckIns, setAllCheckIns] = useState([]);
     const [Success, setSuccess] = useState(null);
     const [Error, setError] = useState(null);
+    const [CheckInsGroupedByDate, setCheckInsGroupedByDate] = useState([]);
 
     useEffect(() => {
         if (localStorage.AllCheckIns) {
@@ -17,6 +18,32 @@ export default function App() {
             localStorage.AllCheckIns = JSON.stringify(AllCheckIns);
         }
     }, []);
+
+    useEffect(() => {
+        if (AllCheckIns.length > 0) {
+            const NewCheckInsGroupedByDate = [];
+
+            for (let i = AllCheckIns.length; i >= 0; i--) {
+                const date = AllCheckIns[i]?.date;
+                const dates = NewCheckInsGroupedByDate.map((i) => i.date);
+                const index = dates.findIndex((i) => i === date);
+                if (index === -1) {
+                    NewCheckInsGroupedByDate.push({
+                        date,
+                        checkins: [AllCheckIns[i]],
+                    });
+                } else {
+                    NewCheckInsGroupedByDate[index].checkins.push(
+                        AllCheckIns[i]
+                    );
+                }
+            }
+
+            setCheckInsGroupedByDate(
+                NewCheckInsGroupedByDate.filter((i) => i.date !== undefined)
+            );
+        }
+    }, [AllCheckIns]);
 
     return (
         <>
