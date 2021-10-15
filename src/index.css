@@ -76,7 +76,7 @@
 }
 
 .Error > div {
-    background-color: tomato;
+    background-color: #ea4435;
 }
 
 .Home {
@@ -173,6 +173,10 @@ select {
     cursor: pointer;
 }
 
+select:hover {
+    color: #785dfb;
+}
+
 select:focus {
     outline: none;
 }
@@ -214,7 +218,7 @@ select:focus {
 .GroupedCheckin {
     width: 90%;
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-columns: 1fr 1fr 2fr 0.25fr;
     grid-template-rows: auto;
 }
 
@@ -229,4 +233,17 @@ select:focus {
 .Labels span {
     color: #785dfb;
     background-color: white;
+}
+
+.Delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.Delete:hover {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }

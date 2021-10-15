@@ -27,6 +27,8 @@ export default function Home({
                 );
                 output.push(
                     <GroupedCheckin
+                        AllCheckIns={AllCheckIns}
+                        setAllCheckIns={(i) => setAllCheckIns(i)}
                         className={"GroupedCheckin Labels"}
                         key={"labelsfor" + group.date}
                         data={{
@@ -39,14 +41,16 @@ export default function Home({
                 for (let checkin of group?.checkins) {
                     output.push(
                         <GroupedCheckin
+                            AllCheckIns={AllCheckIns}
+                            setAllCheckIns={(i) => setAllCheckIns(i)}
                             className={"GroupedCheckin"}
                             key={checkin.date + checkin.tag + checkin.activity}
                             data={checkin}
                         />
                     );
                 }
-                output.push(<br />);
-                output.push(<br />);
+                output.push(<br key={"br1for" + group.date} />);
+                output.push(<br key={"br2for" + group.date} />);
             }
         }
 
@@ -63,6 +67,8 @@ export default function Home({
                 );
                 output.push(
                     <GroupedCheckin
+                        AllCheckIns={AllCheckIns}
+                        setAllCheckIns={(i) => setAllCheckIns(i)}
                         className={"GroupedCheckin Labels"}
                         key={"labelsfor" + group.tag}
                         data={{
@@ -75,14 +81,16 @@ export default function Home({
                 for (let checkin of group?.checkins) {
                     output.push(
                         <GroupedCheckin
+                            AllCheckIns={AllCheckIns}
+                            setAllCheckIns={(i) => setAllCheckIns(i)}
                             className={"GroupedCheckin"}
                             key={checkin.date + checkin.tag + checkin.activity}
                             data={checkin}
                         />
                     );
                 }
-                output.push(<br />);
-                output.push(<br />);
+                output.push(<br key={"br1for" + group.tag} />);
+                output.push(<br key={"br2for" + group.tag} />);
             }
         }
 
