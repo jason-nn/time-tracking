@@ -218,7 +218,7 @@ select:focus {
 .GroupedCheckin {
     width: 90%;
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr 0.25fr;
+    grid-template-columns: 1fr 0.5fr 1fr 1.5fr 0.25fr;
     grid-template-rows: auto;
 }
 
@@ -226,7 +226,7 @@ select:focus {
     background-color: #f7f6fa;
     border: 1.5px solid white;
     padding: 1em;
-    text-align: left;
+    text-align: center;
     font-size: 0.9rem;
 }
 

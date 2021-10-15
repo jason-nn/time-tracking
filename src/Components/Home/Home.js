@@ -34,6 +34,7 @@ export default function Home({
                         data={{
                             date: "Date",
                             tag: "Tag",
+                            hours: "Hours",
                             activity: "Activity",
                         }}
                     />
@@ -74,6 +75,7 @@ export default function Home({
                         data={{
                             date: "Date",
                             tag: "Tag",
+                            hours: "Hours",
                             activity: "Activity",
                         }}
                     />

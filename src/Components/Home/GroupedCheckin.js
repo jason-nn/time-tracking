@@ -9,6 +9,7 @@ export default function GroupedCheckin({
     return (
         <div className={className}>
             <span>{data.date}</span>
+            <span>{data.hours}</span>
             <span>{data.tag}</span>
             <span>{data.activity}</span>
             {className === "GroupedCheckin" ? (
