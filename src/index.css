@@ -181,7 +181,7 @@ select:focus {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
 }
 
 .GroupHeader {
@@ -214,15 +214,15 @@ select:focus {
 .GroupedCheckin {
     width: 90%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 2fr;
     grid-template-rows: auto;
 }
 
 .GroupedCheckin span {
     background-color: #f7f6fa;
     border: 1.5px solid white;
-    padding: 0.5em;
-    text-align: center;
+    padding: 1em;
+    text-align: left;
     font-size: 0.9rem;
 }
 
