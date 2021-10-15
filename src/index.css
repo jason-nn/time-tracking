@@ -154,8 +154,25 @@ h2 {
 
 .Home .Left .Top {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
     padding: 1em;
     border-bottom: 3px solid #f7f6fa;
+}
+
+.Home .Left .Top label {
+    font-size: 1rem;
+}
+
+select {
+    font-size: 1rem;
+    border: none;
+    text-align: center;
+    border-radius: 100vw;
+    cursor: pointer;
+}
+
+select:focus {
+    outline: none;
 }

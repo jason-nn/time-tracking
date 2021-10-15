@@ -10,6 +10,7 @@ export default function App() {
     const [Success, setSuccess] = useState(null);
     const [Error, setError] = useState(null);
     const [CheckInsGroupedByDate, setCheckInsGroupedByDate] = useState([]);
+    const [CheckInsGroupedByTag, setCheckInsGroupedByTag] = useState([]);
 
     useEffect(() => {
         if (localStorage.AllCheckIns) {
@@ -45,6 +46,28 @@ export default function App() {
         }
     }, [AllCheckIns]);
 
+    useEffect(() => {
+        const NewCheckInsGroupedByTag = [];
+
+        for (let i = AllCheckIns.length; i >= 0; i--) {
+            const tag = AllCheckIns[i]?.tag;
+            const tags = NewCheckInsGroupedByTag.map((i) => i.tag);
+            const index = tags.findIndex((i) => i === tag);
+            if (index === -1) {
+                NewCheckInsGroupedByTag.push({
+                    tag,
+                    checkins: [AllCheckIns[i]],
+                });
+            } else {
+                NewCheckInsGroupedByTag[index].checkins.push(AllCheckIns[i]);
+            }
+        }
+
+        setCheckInsGroupedByTag(
+            NewCheckInsGroupedByTag.filter((i) => i.tag !== undefined)
+        );
+    }, [AllCheckIns]);
+
     return (
         <>
             {Success ? (
@@ -62,6 +85,8 @@ export default function App() {
             {DisplayHome ? (
                 <Home
                     AllCheckIns={AllCheckIns}
+                    CheckInsGroupedByDate={CheckInsGroupedByDate}
+                    CheckInsGroupedByTag={CheckInsGroupedByTag}
                     setAllCheckIns={(i) => setAllCheckIns(i)}
                     setSuccess={(i) => setSuccess(i)}
                     setError={(i) => setError(i)}

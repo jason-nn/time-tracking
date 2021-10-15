@@ -1,7 +1,11 @@
-import React, { useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
+import GroupHeader from "./GroupHeader";
+import GroupedCheckin from "./GroupedCheckin";
 
 export default function Home({
     AllCheckIns,
+    CheckInsGroupedByDate,
+    CheckInsGroupedByTag,
     setAllCheckIns,
     setSuccess,
     setError,
@@ -9,15 +13,102 @@ export default function Home({
     const hoursRef = useRef();
     const tagRef = useRef();
     const activityRef = useRef();
+    const GroupByRef = useRef();
+
+    const [GroupBy, setGroupBy] = useState("Date");
+
+    function renderCheckInsGroupedByDate() {
+        const output = [];
+
+        if (CheckInsGroupedByDate.length > 0) {
+            for (let group of CheckInsGroupedByDate) {
+                output.push(
+                    <GroupHeader key={group.date} content={group.date} />
+                );
+                output.push(
+                    <GroupedCheckin
+                        key={"labelsfor" + group.date}
+                        data={{
+                            date: "Date",
+                            tag: "Tag",
+                            activity: "Activity",
+                        }}
+                    />
+                );
+                for (let checkin of group?.checkins) {
+                    output.push(
+                        <GroupedCheckin
+                            key={checkin.date + checkin.tag + checkin.activity}
+                            data={checkin}
+                        />
+                    );
+                }
+            }
+        }
+
+        return output;
+    }
+
+    function renderCheckInsGroupedByTag() {
+        const output = [];
+
+        if (CheckInsGroupedByTag.length > 0) {
+            for (let group of CheckInsGroupedByTag) {
+                output.push(
+                    <GroupHeader key={group.tag} content={group.tag} />
+                );
+                output.push(
+                    <GroupedCheckin
+                        key={"labelsfor" + group.tag}
+                        data={{
+                            date: "Date",
+                            tag: "Tag",
+                            activity: "Activity",
+                        }}
+                    />
+                );
+                for (let checkin of group?.checkins) {
+                    output.push(
+                        <GroupedCheckin
+                            key={checkin.date + checkin.tag + checkin.activity}
+                            data={checkin}
+                        />
+                    );
+                }
+            }
+        }
+
+        return output;
+    }
 
     return (
         <div className="Home">
             <div className="Left">
                 <div className="Top">
-                    <h2>All check ins</h2>
+                    <div>
+                        <h2>All check ins</h2>
+                    </div>
+                    <br />
+                    <div>
+                        <label htmlFor="GroupBy">Group by</label>
+                        <select
+                            name="GroupBy"
+                            id="GroupBy"
+                            value={GroupBy}
+                            ref={GroupByRef}
+                            onChange={() =>
+                                setGroupBy(GroupByRef.current.value)
+                            }
+                        >
+                            <option value="Date">Date</option>
+                            <option value="Tag">Tag</option>
+                        </select>
+                    </div>
                 </div>
                 <div className="Bottom">
-                    <div></div>
+                    {GroupBy === "Date"
+                        ? renderCheckInsGroupedByDate()
+                        : renderCheckInsGroupedByTag()}
                 </div>
             </div>
             <div className="Right">
