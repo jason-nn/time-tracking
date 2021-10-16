@@ -2,10 +2,10 @@
 
 <br/>
 
-## Installation
+## Time Tracking App
 
 ```
-git clone https://github.com/jason-nn/slack-project.git
+git clone https://github.com/jason-nn/time-tracking.git
 ```
 
 ```
