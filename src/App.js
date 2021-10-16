@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Components/Shared/Navbar";
 import Home from "./Components/Home/Home";
-import Visualization from "./Components/Summary/Visualization";
+import Visualization from "./Components/Visualization/Visualization";
 import Toast from "./Components/Shared/Toast";
 
 export default function App() {
