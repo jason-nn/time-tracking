@@ -1,8 +1,8 @@
-# Slack Project
+# Time Tracking App
 
 <br/>
 
-## Time Tracking App
+## Installation
 
 ```
 git clone https://github.com/jason-nn/time-tracking.git
