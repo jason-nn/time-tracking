@@ -29,7 +29,7 @@ export default function Navbar({ setDisplayHome }) {
             </div>
             <div className="Right">
                 <span onClick={() => setDisplayHome(true)}>Home</span>
-                <span onClick={() => setDisplayHome(false)}>Summary</span>
+                <span onClick={() => setDisplayHome(false)}>Visualization</span>
             </div>
         </div>
     );

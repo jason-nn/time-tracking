@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Components/Shared/Navbar";
 import Home from "./Components/Home/Home";
-import Summary from "./Components/Summary/Summary";
+import Visualization from "./Components/Summary/Visualization";
 import Toast from "./Components/Shared/Toast";
 
 export default function App() {
@@ -11,6 +11,10 @@ export default function App() {
     const [Error, setError] = useState(null);
     const [CheckInsGroupedByDate, setCheckInsGroupedByDate] = useState([]);
     const [CheckInsGroupedByTag, setCheckInsGroupedByTag] = useState([]);
+    const [TagChartLabels, setTagChartLabels] = useState([]);
+    const [TagChartData, setTagChartData] = useState([]);
+    const [DayChartLabels, setDayChartLabels] = useState([]);
+    const [DayChartData, setDayChartData] = useState([]);
 
     useEffect(() => {
         if (localStorage.AllCheckIns) {
@@ -68,6 +72,44 @@ export default function App() {
         );
     }, [AllCheckIns]);
 
+    useEffect(() => {
+        const labels = [];
+        const data = [];
+
+        console.log(CheckInsGroupedByTag);
+
+        for (let group of CheckInsGroupedByTag) {
+            labels.push(group.tag);
+            let hours = 0;
+            for (let checkin of group.checkins) {
+                hours += checkin.hours;
+            }
+            data.push(hours);
+        }
+
+        setTagChartLabels(labels);
+        setTagChartData(data);
+    }, [CheckInsGroupedByTag]);
+
+    useEffect(() => {
+        const labels = [];
+        const data = [];
+
+        console.log(CheckInsGroupedByDate);
+
+        for (let group of CheckInsGroupedByDate) {
+            labels.push(group.date);
+            let hours = 0;
+            for (let checkin of group.checkins) {
+                hours += checkin.hours;
+            }
+            data.push(hours);
+        }
+
+        setDayChartLabels(labels);
+        setDayChartData(data);
+    }, [CheckInsGroupedByDate]);
+
     return (
         <>
             {Success ? (
@@ -92,7 +134,12 @@ export default function App() {
                     setError={(i) => setError(i)}
                 />
             ) : (
-                <Summary />
+                <Visualization
+                    TagChartLabels={TagChartLabels}
+                    TagChartData={TagChartData}
+                    DayChartLabels={DayChartLabels}
+                    DayChartData={DayChartData}
+                />
             )}
         </>
     );

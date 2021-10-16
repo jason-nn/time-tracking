@@ -32,7 +32,7 @@
 }
 
 .Home,
-.Summary {
+.Visualization {
     background-color: white;
     height: 90vh;
     width: 100vw;
@@ -244,6 +244,19 @@ select:focus {
 }
 
 .Delete:hover {
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    background-color: rgb(120, 93, 251, 0.2);
+}
+
+.Visualization {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Bar {
+    width: 1000px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
