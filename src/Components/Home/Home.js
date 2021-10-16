@@ -17,6 +17,7 @@ export default function Home({
 
     const [GroupBy, setGroupBy] = useState("Date");
 
+    // Renders checkins grouped by date
     function renderCheckInsGroupedByDate() {
         const output = [];
 
@@ -58,6 +59,7 @@ export default function Home({
         return output;
     }
 
+    // Renders checkins grouped by tag
     function renderCheckInsGroupedByTag() {
         const output = [];
 

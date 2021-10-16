@@ -8,6 +8,7 @@ export default function Navbar({ setDisplayHome }) {
         })
     );
 
+    // Updates Time every 1000ms
     useEffect(() => {
         let TimeInterval = setInterval(() => {
             setTime(

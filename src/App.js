@@ -16,6 +16,7 @@ export default function App() {
     const [DayChartLabels, setDayChartLabels] = useState([]);
     const [DayChartData, setDayChartData] = useState([]);
 
+    // Retrieves checkins from local storage if it exists already, creates checkins as an empty array otherwise
     useEffect(() => {
         if (localStorage.AllCheckIns) {
             setAllCheckIns(JSON.parse(localStorage.AllCheckIns));
@@ -24,6 +25,7 @@ export default function App() {
         }
     }, []);
 
+    // Groups checkins by date and saves to CheckInsGroupedByDate
     useEffect(() => {
         if (AllCheckIns.length > 0) {
             const NewCheckInsGroupedByDate = [];
@@ -50,6 +52,7 @@ export default function App() {
         }
     }, [AllCheckIns]);
 
+    // Groups checkins by date and saves to CheckInsGroupedByTag
     useEffect(() => {
         const NewCheckInsGroupedByTag = [];
 
@@ -72,6 +75,7 @@ export default function App() {
         );
     }, [AllCheckIns]);
 
+    // Creates labels and data for the chart Total Hours Spent by Tag
     useEffect(() => {
         const labels = [];
         const data = [];
@@ -91,6 +95,7 @@ export default function App() {
         setTagChartData(data);
     }, [CheckInsGroupedByTag]);
 
+    // Creates labels and data for the chart Total Hours Spent by Date
     useEffect(() => {
         const labels = [];
         const data = [];
