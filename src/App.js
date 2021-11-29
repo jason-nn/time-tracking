@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import Navbar from "./Components/Shared/Navbar";
-import Home from "./Components/Home/Home";
-import Visualization from "./Components/Visualization/Visualization";
-import Toast from "./Components/Shared/Toast";
+import React, { useState, useEffect } from 'react';
+import Navbar from './Components/Shared/Navbar';
+import Home from './Components/Home/Home';
+import Visualization from './Components/Visualization/Visualization';
+import Toast from './Components/Shared/Toast';
 
 export default function App() {
     const [DisplayHome, setDisplayHome] = useState(true);
@@ -21,7 +21,45 @@ export default function App() {
         if (localStorage.AllCheckIns) {
             setAllCheckIns(JSON.parse(localStorage.AllCheckIns));
         } else {
-            localStorage.AllCheckIns = JSON.stringify(AllCheckIns);
+            localStorage.AllCheckIns = JSON.stringify([
+                {
+                    date: '10/15/2021',
+                    hours: 3,
+                    tag: 'Project X',
+                    activity: 'CSS',
+                },
+                {
+                    date: '10/15/2021',
+                    hours: 1.5,
+                    tag: 'Project Y',
+                    activity: 'Research',
+                },
+                {
+                    date: '10/15/2021',
+                    hours: 3,
+                    tag: 'Project Y',
+                    activity: 'Debugging',
+                },
+                {
+                    date: '10/15/2021',
+                    hours: 5,
+                    tag: 'Project X',
+                    activity: 'Refactoring',
+                },
+                {
+                    date: '10/15/2021',
+                    hours: 1,
+                    tag: 'Project X',
+                    activity: 'Implemented feature request',
+                },
+                {
+                    date: '10/16/2021',
+                    hours: 10,
+                    tag: 'Project Z',
+                    activity: 'Added bar graph',
+                },
+            ]);
+            setAllCheckIns(JSON.parse(localStorage.AllCheckIns));
         }
     }, []);
 
